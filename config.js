@@ -1,7 +1,7 @@
 var config = {};
 
 config.nick = "Openity";
-config.admins = ["admin"];
+config.admins = ["nog"];
 config.server = "irc.freenode.net";
 config.options = {
     channels: ["#geekpunks"]
