@@ -1,0 +1,10 @@
+{
+  "name": "Openity",
+  "description": "An IRC bot!",
+  "version": "0.0.1",
+  "author": "Evan Brown <noggin@gmail.com>",
+  "dependencies": {
+    "irc": "0.3.9",
+    "twss": "0.1.6"
+  }
+}
