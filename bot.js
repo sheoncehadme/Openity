@@ -6,7 +6,7 @@ var config = require('./config');
 
 twss.threshold = 0.999;
 
-var client = new irc.Client(config.server, config.nick, {channels: config.channels});
+var client = new irc.Client(config.server, config.nick, config.options);
 
 client.addListener('message', function (from, to, message) {
     if(twss.is(message)){
