@@ -1,12 +1,12 @@
+#!/usr/bin/nodejs
+
 var irc = require('irc');
 var twss = require('twss');
-var server = 'irc.freenode.net';
-var nick = 'twssbot';
+var config = require('./config');
+
 twss.threshold = 0.999;
 
-var client = new irc.Client(server, nick, {
-    channels: ['#RCFPV','#geekpunks'],
-});
+var client = new irc.Client(config.server, config.nick, {channels: config.channels});
 
 client.addListener('message', function (from, to, message) {
     if(twss.is(message)){
@@ -18,4 +18,10 @@ client.addListener('message', function (from, to, message) {
 
 client.addListener('error', function(message) {
     console.log('error: ', message);
+});
+
+client.addListener('pm', function(from, message){
+    if((config.admins.indexOf(from) !== -1) && message == 'quit'){
+       client.disconnect();
+    }
 });
